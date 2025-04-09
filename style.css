@@ -20,22 +20,22 @@ body {
 }
 
 .content-container {
-      width: 60%;
-      max-width: 800px;
-      padding: 20px;
-      box-sizing: border-box;
-      border-left: 1px solid #ccc;
-      border-right: 1px solid #ccc;
-      text-align: left; /* Align text to the left within the container */
-    }
+  width: 60%;
+  max-width: 800px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  text-align: left; /* Align text to the left within the container */
+}
 
-    .content-container h1,
-    .content-container h3,
-    .content-container p {
-      text-align: left; /* Ensure headings and paragraphs are left-aligned */
-    }
+ .content-container h1,
+ .content-container h3,
+ .content-container p {
+   text-align: left; /* Ensure headings and paragraphs are left-aligned */
+ }
 
-    .content-container p {
-      line-height: 1.6;
-      font-family: sans-serif;
-    }
+ .content-container p {
+    line-height: 1.6;
+    font-family: sans-serif;
+ }
