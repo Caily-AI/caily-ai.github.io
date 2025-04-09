@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'CailyFont';
   src: url('fonts/SourceSans3-VariableFont_wght.tff') format('truetype'),
-       url('SourceSans3-Italic-VariableFont_wght.tff') format('trutype');
+       url('fonts/SourceSans3-Italic-VariableFont_wght.tff') format('trutype');
   font-weight: normal;
   font-style: normal;
 }
