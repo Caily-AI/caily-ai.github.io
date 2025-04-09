@@ -1,3 +1,12 @@
+h1 {
+    font-size: 60px;
+    margin-top: 20px;
+    padding-top: 50px;
+    text-align: center;
+    color: #6992f2; 
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
 body {
   background: #D4D4D4;
   font-family: 'Source Sans 3', sans-serif;
@@ -10,12 +19,23 @@ body {
   text-align: center; /* Center text within the body initially */
 }
 
+.content-container {
+      width: 60%;
+      max-width: 800px;
+      padding: 20px;
+      box-sizing: border-box;
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      text-align: left; /* Align text to the left within the container */
+    }
 
-h1 {
-    font-size: 60px;
-    margin-top: 20px;
-    padding-top: 50px;
-    text-align: center;
-    color: #6992f2; 
-    font-family: 'Source Sans 3', sans-serif;
-  }
+    .content-container h1,
+    .content-container h3,
+    .content-container p {
+      text-align: left; /* Ensure headings and paragraphs are left-aligned */
+    }
+
+    .content-container p {
+      line-height: 1.6;
+      font-family: sans-serif;
+    }
