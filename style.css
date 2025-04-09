@@ -1,15 +1,24 @@
+@font-face {
+  font-family: 'CailyFont';
+  src: url('fonts/SourceSans3-VariableFont_wght.tff') format('truetype'),
+       url('SourceSans3-Italic-VariableFont_wght.tff') format('trutype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 h1 {
     font-size: 60px;
     margin-top: 20px;
     padding-top: 50px;
     text-align: center;
     color: #6992f2; 
-    font-family: 'Source Sans', sans-serif;
+    font-family: 'CailyFont', sans-serif;
   }
 
 body {
   background: #D4D4D4;
-  font-family: 'Source Sans', sans-serif;
+  font-family: 'CailyFont', sans-serif;
   font-weight: 200;
   text-align: center;
   display: flex;
@@ -17,7 +26,7 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  text-align: center; /* Center text within the body initially */
+  text-align: center; 
 }
 
 .content-container {
@@ -27,18 +36,18 @@ body {
   box-sizing: border-box;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
-  text-align: left; /* Align text to the left within the container */
+  text-align: left; 
 }
 
  .content-container h1,
  .content-container h3,
  .content-container p {
-   text-align: left; /* Ensure headings and paragraphs are left-aligned */
+   text-align: left;
  }
 
  .content-container p {
     line-height: 1.6;
-    font-family: sans-serif;
+    font-family: 'CailyFont', sans-serif;
  }
 
 footer {
