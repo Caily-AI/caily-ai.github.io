@@ -4,12 +4,12 @@ h1 {
     padding-top: 50px;
     text-align: center;
     color: #6992f2; 
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: 'Source Sans', sans-serif;
   }
 
 body {
   background: #D4D4D4;
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Source Sans', sans-serif;
   font-weight: 200;
   text-align: center;
   display: flex;
