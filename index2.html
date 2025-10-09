@@ -336,10 +336,45 @@
         <div class="container">
             <h2>Be the First to Know</h2>
             <p>We are making Caily available to a small group of seniors and their families in 2025. <br>Sign up to get updates and be considered for our pilot program.</p>
-            <form id="waitlist-form" method="POST" action="https://script.google.com/macros/s/AKfycbwh0rmbDqsVXLKHtIoqeIn1Z8FG2NJDN24z2iPuWj3SuAQj_VnOTzSYYMlnRRfogmpg/exec">
-                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-                <button type="submit">Join Waitlist</button>
-            </form>
+
+            
+<form id="waitlist-form">
+    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+    <button type="submit">Join Waitlist</button>
+</form>
+
+<script>
+    const form = document.getElementById('waitlist-form');
+    // Replace with your Web App URL
+    const appScriptURL = 'https://script.google.com/macros/s/AKfycbzqdLXmATNVp6k29k5jngqMwnBgA_gvJ3l6GOYB7kPMLCii8IzVbK9GLV7OxQPwpK-n/exec'; 
+    // Replace with the URL of your custom thank you page
+    const thankYouURL = 'https://www.caily.ai/thank-you'; 
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Stop the default form submission
+
+        // Use the Fetch API to send the data silently
+        fetch(appScriptURL, {
+            method: 'POST',
+            body: new FormData(form)
+        })
+        .then(response => {
+            // Check for a successful response from the script
+            if (response.ok) {
+                // Redirect to your custom thank you page
+                window.location.href = thankYouURL; 
+            } else {
+                alert('An error occurred during submission. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('A network error occurred.');
+        });
+    });
+</script>
+
+            
             <div class="footer-text">
                 <p>&copy; 2025 Caily. All Rights Reserved.</p>
             </div>
