@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caily - Your 24x7 Senior Assistant</title>
+    <style>
+        :root {
+            /* Extracted colors from the provided image */
+            --primary-color: #6a7f74; /* Darker green from sidebar/headers */
+            --secondary-color: #e8e8e3; /* Light beige/off-white background */
+            --text-color: #333333; /* Standard dark text */
+            --light-gray: #d4d4cd; /* Lighter shade for borders/subtleties */
+            --white: #ffffff; /* Pure white for elements */
+            --accent-green: #a7cdb8; /* Light green from the dashboard cards */
+            --accent-orange: #efad78; /* Orange from the dashboard cards */
+            --accent-red: #da7156; /* Reddish-orange from the dashboard cards */
+            --accent-blue: #a3c4db; /* Light blue from the dashboard cards */
+            --font-family: 'Helvetica Neue', Arial, sans-serif; /* Kept font for readability */
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--light-gray);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .cta-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--secondary-color);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Problem/Stats Section */
+        .problem-section {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--white); /* Ensure contrast with hero */
+        }
+
+        .problem-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            flex-basis: 30%;
+            margin-bottom: 20px;
+            background-color: var(--secondary-color); /* Use secondary for card-like background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .stat-item .number {
+            font-size: 4em;
+            font-weight: bold;
+            color: var(--accent-blue); /* Used one of the dashboard card colors */
+        }
+
+        .stat-item .description {
+            font-size: 1.1em;
+            color: var(--text-color);
+            margin-top: 10px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+            background-color: var(--secondary-color);
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        /* Community Section */
+        .community-section {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--white);
+        }
+        
+        .community-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .community-section p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Footer / Waitlist */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        footer h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        #waitlist-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        #waitlist-form input[type="email"] {
+            flex-grow: 1;
+            padding: 15px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+            background-color: var(--light-gray); /* Input field background */
+            color: var(--text-color);
+        }
+        
+        #waitlist-form button {
+            padding: 15px 25px;
+            border-radius: 5px;
+            border: none;
+            background-color: var(--white); /* Button background */
+            color: var(--primary-color);
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #waitlist-form button:hover {
+            background-color: var(--accent-green);
+            color: var(--white);
+        }
+        
+        .footer-text {
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            #waitlist-form {
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">CAILY</div>
+                <ul>
+                    <li><a href="#features">How It Works</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#waitlist" class="cta-button">Join Waitlist</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Your 24x7 Senior Assistant</h1>
+                <p>Caily is a conversational, warm, trustworthy and competent personal assistant designed to help seniors with everyday tasks, keeping them safe, independent, and connected.</p>
+                <a href="#waitlist" class="cta-button">Join the Waitlist</a>
+            </div>
+        </section>
+
+        <section class="problem-section">
+            <div class="container">
+                <h2>Supporting an Aging Population</h2>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="number">77%</div>
+                        <div class="description">of Americans 50 and older want to age in place.</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">+47%</div>
+                        <div class="description">projected increase in Americans aged 65+ by 2050.</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">12-18%</div>
+                        <div class="description">of Americans 60+ have mild cognitive impairment that can impact their ability to use apps.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Peace of Mind for the Whole Family</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>Independence</h3>
+                        <p>Caily helps seniors with everyday tasks like ordering meal deliveries, groceries, and transportation, empowering them to live independently.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Accessibility</h3>
+                        <p>With 24/7 availability by phone, seniors can access assistance anytime, day or night. Caily picks up on the first ring and speaks as slowly as needed, never losing patience.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Safety & Connection</h3>
+                        <p>Caily keeps designated family members and caregivers in the loop and notifies them of anything out of the ordinary, ensuring your loved ones are always looked after.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="community" class="community-section">
+            <div class="container">
+                <h2>The Caily.org Community</h2>
+                <p>Caily.org is a non-profit organization dedicated to providing resources, research, and advocacy for seniors and their families. Join our community to stay informed and help us build a better future for aging in place.</p>
+                <a href="http://caily.org" class="cta-button" target="_blank">Visit Caily.org</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="waitlist">
+        <div class="container">
+            <h2>Be the First to Know</h2>
+            <p>We are building an initial service to test with a small group of seniors and their families in 2025. Sign up to get updates and be considered for our pilot program.</p>
+            <form id="waitlist-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Join Waitlist</button>
+            </form>
+            <div class="footer-text">
+                <p>&copy; 2025 Caily. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
