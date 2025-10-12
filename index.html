@@ -19,30 +19,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Extracted colors from the provided image */
+            /* ------------------------------------------------ */
+            /* LIGHT MODE BASE COLORS (The default colors) */
+            /* ------------------------------------------------ */
             --logo-color: #5D89ED;
-            --primary-color: #5D89ED; /* Darker green from sidebar/headers */
+            --primary-color: #5D89ED; 
             --secondary-color: #e8e8e3; /* Light beige/off-white background */
             --text-color: #333333; /* Standard dark text */
             --dark-green: #6a7f74;
             --light-gray: #d4d4cd; /* Lighter shade for borders/subtleties */
             --white: #ffffff; /* Pure white for elements */
-            --peach: #49e7d2; /* Peach hero background
+            --peach: #49e7d2; /* Light color for hero background */
             --accent-green: #a7cdb8; /* Light green from the dashboard cards */
-            --accent-orange: #efad78; /* Orange from the dashboard cards */
-            --accent-red: #da7156; /* Reddish-orange from the dashboard cards */
-            --accent-blue: #a3c4db; /* Light blue from the dashboard cards */
-            /* 2) Changed font to Source Sans 3, pulling from the link above */
             --font-family: 'Source Sans 3', sans-serif;
+
+            /* ------------------------------------------------ */
+            /* FLEXIBLE VARIABLES (The elements will use these) */
+            /* ------------------------------------------------ */
+            /* Global */
+            --bg-color: var(--white); /* Main background */
+            --surface-color: var(--secondary-color); /* Card/feature background */
+            --main-text-color: var(--text-color); /* General body text */
+            
+            /* Header */
+            --header-border: var(--light-gray); /* Header border */
+            --header-bg: var(--white); /* Header background */
+
+            /* Hero */
+            --hero-bg-color: var(--peach); /* Hero background color (fallback/base) */
+            --hero-h1-color: var(--primary-color); /* Hero h1 text color */
+            --hero-text-color: var(--text-color); /* Hero p text color */
+
+            /* Waitlist Form */
+            --form-input-bg: var(--secondary-color);
+            --form-input-text: var(--text-color);
+            --form-button-bg: var(--secondary-color);
+            --form-button-text: var(--dark-green);
         }
 
         body {
-            /* 2) Using the new font family */
+            /* Updated to use flexible variables */
             font-family: var(--font-family);
             margin: 0;
             padding: 0;
-            color: var(--text-color);
-            background-color: var(--white);
+            color: var(--main-text-color);
+            background-color: var(--bg-color);
             line-height: 1.6;
         }
 
@@ -54,9 +75,9 @@
 
         /* Header */
         header {
-            background-color: var(--white);
+            background-color: var(--header-bg); /* Changed to flexible variable */
             padding: 20px 0;
-            border-bottom: 1px solid var(--light-gray);
+            border-bottom: 1px solid var(--header-border); /* Changed to flexible variable */
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -87,7 +108,7 @@
 
         nav a {
             text-decoration: none;
-            color: var(--primary-color);
+            color: var(--primary-color); /* Will be overridden in dark mode below */
             font-weight: bold;
         }
         
@@ -100,32 +121,57 @@
             font-weight: bold;
         }
 
-        /* Hero Section */
-        .hero {
-            /* Combined background properties for robustness */
-            background: url('soundwaveheader.png') no-repeat center center;
-            background-size: center;
-            
-            /* Ensure content is readable and the section has height */
-            padding: 100px 0; /* Provide ample vertical space */
-            text-align: center;
-            color: var(--text-color); /* Ensure default text color for the section is dark grey */
-        }
+/* Hero Section */
+.hero {
+    /* REMOVED: background: url('soundwaveheader.png') no-repeat center center; */
+    background: none; /* 1. Ensure no other background property interferes */
+    position: relative; /* 2. ESSENTIAL: This contains the absolute-positioned video */
+    overflow: hidden; 
+    
+    /* Ensure content is readable and the section has height */
+    padding: 100px 0; /* Provide ample vertical space */
+    text-align: center;
+    color: var(--text-color); 
+}
+
+/* New styles for the background video */
+#hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* 3. ESSENTIAL: Place the video behind the content */
+    transform: translate(-50%, -50%);
+    background-size: cover;
+}
+
+
+.hero .container {
+    position: relative; /* 4. ESSENTIAL: Establish a new stacking context */
+    z-index: 1; /* 5. ESSENTIAL: Ensure text content is on top of the video and overlay */
+}
+
+/* Existing .hero h1 and .hero p styles are correct for text color */
+/* ... */
         
         .hero h1 {
             font-size: 3em;
             margin-bottom: 20px;
-            color: var(--primary-color); /* Explicitly set heading color to dark green */
+            color: var(--hero-h1-color); /* Using new flexible variable */
         }
 
         .hero p {
             font-size: 1.2em;
             max-width: 600px;
             margin: 0 auto 30px auto;
+            color: var(--hero-text-color); /* Using new flexible variable */
         }
         
         .hero .cta-button {
-            background-color: var(--primary-color); /* Example: use an accent color that stands out */
+            background-color: var(--primary-color);
             color: var(--white);
             padding: 12px 25px;
             border-radius: 5px;
@@ -136,7 +182,7 @@
         }
 
         .hero .cta-button:hover {
-            background-color: #8ac09d; /* Slightly darker accent green on hover */
+            background-color: #8ac09d;
         }
 
 
@@ -144,7 +190,7 @@
         .problem-section {
             padding: 60px 0;
             text-align: center;
-            background-color: var(--white); /* Ensure contrast with hero */
+            background-color: var(--bg-color); 
         }
 
         .problem-section h2 {
@@ -156,38 +202,36 @@
         .stats-container {
             display: flex;
             justify-content: space-around;
-            /* 1. Mobile-Friendly Edit: Allow items to wrap on smaller screens */
             flex-wrap: wrap; 
         }
 
         .stat-item {
-            /* 1. Mobile-Friendly Edit: Changed from absolute 30% to a more flexible calculation for smaller gaps on mobile */
             flex-basis: 30%; 
-            min-width: 250px; /* Ensures minimum size for readability, will stack on smaller screens */
+            min-width: 250px; 
             margin-bottom: 20px;
-            background-color: var(--secondary-color); /* Use secondary for card-like background */
+            background-color: var(--surface-color); 
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            margin: 10px; /* Added margins for spacing when wrapping */
+            margin: 10px; 
         }
 
         .stat-item .number {
             font-size: 2em;
             font-weight: bold;
-            color: var(--dark-green); /* Used one of the dashboard card colors */
+            color: var(--primary-color); 
         }
 
         .stat-item .description {
             font-size: 1.1em;
-            color: var(--text-color);
+            color: var(--main-text-color); 
             margin-top: 10px;
         }
 
         /* Features Section */
         .features {
             padding: 60px 0;
-            background-color: var(--secondary-color);
+            background-color: var(--surface-color);
         }
         
         .features h2 {
@@ -199,13 +243,12 @@
 
         .feature-grid {
             display: grid;
-            /* 1. Mobile-Friendly Edit: Ensures the grid adapts. Items will be full width until 300px is possible for at least two columns. */
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 30px;
         }
 
         .feature-card {
-            background: var(--white);
+            background: var(--bg-color); /* Changed to use main background variable for consistency */
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -242,16 +285,16 @@
             border-radius: 5px;
             border: none;
             font-size: 1em;
-            background-color: var(--secondary-color); 
-            color: var(--text-color);
+            background-color: var(--form-input-bg); 
+            color: var(--form-input-text); 
         }
         
         #waitlist-form button {
             padding: 15px 25px;
             border-radius: 5px;
             border: none;
-            background-color: var(--secondary-color); 
-            color: var(--dark-green);
+            background-color: var(--form-button-bg); 
+            color: var(--form-button-text); 
             font-size: 1em;
             font-weight: bold;
             cursor: pointer;
@@ -268,15 +311,15 @@
             font-size: 0.9em;
         }
         
-        /* 1. Mobile-Friendly Edit: Responsive adjustments for smaller screens */
+        /* 1. Mobile-Friendly Edit: Responsive adjustments for smaller screens (kept the original structure) */
         @media (max-width: 768px) {
             
             .container {
-                padding: 0 15px; /* Slightly less padding on very small screens */
+                padding: 0 15px; 
             }
 
             nav {
-                flex-direction: column; /* Stack logo and nav links */
+                flex-direction: column; 
             }
 
             nav ul {
@@ -289,15 +332,15 @@
             }
 
             .hero {
-                padding: 60px 0; /* Reduce vertical padding on mobile */
+                padding: 60px 0; 
             }
             
             .hero h1 {
-                font-size: 2.2em; /* Smaller font for main heading */
+                font-size: 2.2em; 
             }
 
             .problem-section h2, .features h2, .community-section h2 {
-                font-size: 2em; /* Smaller headings */
+                font-size: 2em; 
             }
 
             .stats-container {
@@ -306,21 +349,84 @@
             }
             
             .stat-item {
-                flex-basis: 90%; /* Take up most of the width */
-                min-width: auto; /* Remove minimum width constraint */
+                flex-basis: 90%; 
+                min-width: auto; 
                 margin-left: 0;
                 margin-right: 0;
             }
             
             #waitlist-form {
-                flex-direction: column; /* Stack input and button */
+                flex-direction: column; 
                 gap: 15px;
                 padding: 0 20px;
             }
             
             #waitlist-form input[type="email"], #waitlist-form button {
                 width: 100%;
-                box-sizing: border-box; /* Include padding and border in the element's total width and height */
+                box-sizing: border-box; 
+            }
+        }
+        
+        /* ========================================================== */
+        /* Specific Changes for DARK MODE Support 🌙 */
+        /* ========================================================== */
+        @media (prefers-color-scheme: dark) {
+            
+            /* Define Dark Colors */
+            --dark-bg: #121212; /* Very dark background */
+            --dark-surface: #1e1e1e; /* Slightly lighter for cards/sections */
+            --dark-text: #e0e0e0; /* Off-white text */
+            --dark-light-gray: #303030; /* Darker border/divider */
+
+            /* 1. Override the flexible variables in dark mode */
+            :root {
+                --bg-color: var(--dark-bg);
+                --surface-color: var(--dark-surface);
+                --main-text-color: var(--dark-text);
+                
+                --header-border: var(--dark-light-gray);
+                --header-bg: var(--dark-bg);
+                
+                /* HERO SECTION: Text must remain dark to contrast with the light soundwave.png image */
+                --hero-bg-color: var(--white); /* Keep a light color base for the light image */
+                --hero-h1-color: var(--primary-color); 
+                --hero-text-color: var(--text-color); /* Keep dark text! */
+
+                --form-input-bg: var(--dark-light-gray);
+                --form-input-text: var(--dark-text);
+                --form-button-bg: var(--dark-light-gray);
+                --form-button-text: var(--primary-color); 
+            }
+
+            /* 2. Style Adjustments for Elements */
+            
+            /* Nav Links (need to be light text, as they weren't using a flexible variable before) */
+            nav a {
+                color: var(--main-text-color); 
+            }
+
+            nav a:hover {
+                color: var(--primary-color);
+            }
+            
+            /* Section Headings */
+            .problem-section h2 {
+                color: var(--primary-color); 
+            }
+            
+            .feature-card h3 {
+                color: var(--primary-color); 
+            }
+            
+            /* Shadows and Depth */
+            .stat-item, .feature-card {
+                box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Stronger shadow for depth on dark background */
+            }
+
+            /* Footer/Waitlist Button Hover */
+            #waitlist-form button:hover {
+                background-color: var(--accent-green);
+                color: var(--dark-bg); 
             }
         }
 
@@ -340,7 +446,12 @@
     </header>
 
     <main>
-        <section class="hero">
+            <section class="hero">
+                <video autoplay loop muted playsinline id="hero-video">
+                    <source src="dual_no_gap.mp4" type="video/mp4">
+                    <img src="soundwaveheader.png" alt="Caily AI Soundwave Background">
+                </video>
+            
             <div class="container">
                 <h1>24x7 Senior Assistant</h1>
                 <p>Caily AI is an interactive, warm, and trustworthy voice assistant designed to help seniors with everyday tasks, keeping them safe, independent, and connected to you.</p>
