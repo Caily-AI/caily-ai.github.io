@@ -7,6 +7,7 @@
     <style>
         :root {
             /* Extracted colors from the provided image */
+            --logo-color: #5D89ED;
             --primary-color: #6a7f74; /* Darker green from sidebar/headers */
             --secondary-color: #e8e8e3; /* Light beige/off-white background */
             --text-color: #333333; /* Standard dark text */
@@ -16,7 +17,8 @@
             --accent-orange: #efad78; /* Orange from the dashboard cards */
             --accent-red: #da7156; /* Reddish-orange from the dashboard cards */
             --accent-blue: #a3c4db; /* Light blue from the dashboard cards */
-            --font-family: 'Helvetica Neue', Arial, sans-serif; /* Kept font for readability */
+            /* 2) Changed font to Source Sans 3, pulling from the link above */
+            --font-family: 'Source Sans 3', sans-serif;
         }
 
         body {
@@ -53,7 +55,7 @@
         .logo {
             font-size: 2em;
             font-weight: bold;
-            color: var(--primary-color);
+            color: var(--logo-color);
         }
 
         nav ul {
@@ -150,12 +152,7 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Caily.ai</div>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/features">Features</a></li>
-                    <li><a href="/about">About</a></li>
-                </ul>
+                <div class="logo"><a href="/index2.html">Caily AI</a></div>
             </nav>
         </div>
     </header>
@@ -167,8 +164,8 @@
             <h1>Thank You!</h1>
             <p>Your email has been successfully added to the waitlist.</p>
             <p>We'll notify you as soon as Caily AI is ready for early access. Keep an eye on your inbox!</p>
-            
-            <a href="/" class="cta-button">Return to Homepage</a>
+            <p>In the meantime, we invite you to join fellow family members of independent elders in the Caily community.</p>
+            <a href="http://www.caily.org" class="cta-button">Learn more at Caily.org</a>
         </div>
     </div>
 
