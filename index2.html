@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caily AI | 24x7 Senior Assistant</title>
+    
+    <meta name="description" content="Caily AI is a 24/7 interactive, warm, and trustworthy voice assistant designed to help seniors with everyday tasks, promoting safety, independence, and connection.">
+    <meta name="keywords" content="AI assistant for seniors, senior care, voice assistant, elderly independence, 24/7 assistant, senior safety, family connection, Caily AI">
+    <meta name="author" content="Caily AI Team">
+    
+    <meta property="og:title" content="Caily AI | 24x7 Senior Assistant">
+    <meta property="og:description" content="Caily AI is a 24/7 interactive, warm, and trustworthy voice assistant designed to help seniors with everyday tasks, promoting safety, independence, and connection.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.caily.ai/"> 
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
@@ -98,42 +108,21 @@
             padding: 100px 0; /* Provide ample vertical space */
             text-align: center;
             color: var(--text-color); /* Ensure default text color for the section is dark grey */
-            
-            /* Optional: Add a subtle overlay for better text contrast if image is busy */
-            /* position: relative; */ /* Uncomment this and the :before if you want an overlay */
         }
         
-        /* Optional: Overlay for better text readability */
-        /* .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); 
-            z-index: 1; 
-        } */
-
         .hero h1 {
             font-size: 3em;
             margin-bottom: 20px;
             color: var(--primary-color); /* Explicitly set heading color to dark green */
-            /* position: relative; */ /* Uncomment if using ::before overlay, for text to be above overlay */
-            /* z-index: 2; */
         }
 
         .hero p {
             font-size: 1.2em;
             max-width: 600px;
             margin: 0 auto 30px auto;
-            /* position: relative; */ /* Uncomment if using ::before overlay */
-            /* z-index: 2; */
         }
         
         .hero .cta-button {
-            /* position: relative; */ /* Uncomment if using ::before overlay */
-            /* z-index: 2; */
             background-color: var(--accent-green); /* Example: use an accent color that stands out */
             color: var(--primary-color);
             padding: 12px 25px;
@@ -165,16 +154,20 @@
         .stats-container {
             display: flex;
             justify-content: space-around;
-            flex-wrap: wrap;
+            /* 1. Mobile-Friendly Edit: Allow items to wrap on smaller screens */
+            flex-wrap: wrap; 
         }
 
         .stat-item {
-            flex-basis: 30%;
+            /* 1. Mobile-Friendly Edit: Changed from absolute 30% to a more flexible calculation for smaller gaps on mobile */
+            flex-basis: 30%; 
+            min-width: 250px; /* Ensures minimum size for readability, will stack on smaller screens */
             margin-bottom: 20px;
             background-color: var(--secondary-color); /* Use secondary for card-like background */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin: 10px; /* Added margins for spacing when wrapping */
         }
 
         .stat-item .number {
@@ -204,7 +197,8 @@
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* 1. Mobile-Friendly Edit: Ensures the grid adapts. Items will be full width until 300px is possible for at least two columns. */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 30px;
         }
 
@@ -291,16 +285,59 @@
             font-size: 0.9em;
         }
         
+        /* 1. Mobile-Friendly Edit: Responsive adjustments for smaller screens */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5em;
+            
+            .container {
+                padding: 0 15px; /* Slightly less padding on very small screens */
             }
+
+            nav {
+                flex-direction: column; /* Stack logo and nav links */
+            }
+
+            nav ul {
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .hero {
+                padding: 60px 0; /* Reduce vertical padding on mobile */
+            }
+            
+            .hero h1 {
+                font-size: 2.2em; /* Smaller font for main heading */
+            }
+
+            .problem-section h2, .features h2, .community-section h2 {
+                font-size: 2em; /* Smaller headings */
+            }
+
             .stats-container {
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .stat-item {
+                flex-basis: 90%; /* Take up most of the width */
+                min-width: auto; /* Remove minimum width constraint */
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
             #waitlist-form {
-                flex-direction: column;
+                flex-direction: column; /* Stack input and button */
+                gap: 15px;
+                padding: 0 20px;
+            }
+            
+            #waitlist-form input[type="email"], #waitlist-form button {
+                width: 100%;
+                box-sizing: border-box; /* Include padding and border in the element's total width and height */
             }
         }
 
