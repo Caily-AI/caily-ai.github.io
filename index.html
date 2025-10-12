@@ -238,14 +238,8 @@
             background-color: var(--primary-color);
             color: var(--white);
             padding: 60px 0;
-            /* Changed to remove text-align: center; for wider footer content */
+            text-align: center;
         }
-        
-        /* NEW: Footer Top Section - For Waitlist Content */
-        .footer-waitlist {
-            text-align: center;
-            margin-bottom: 40px;
-        }
         
         footer h2 {
             font-size: 2em;
@@ -286,51 +280,11 @@
             color: var(--white);
         }
         
-        /* NEW: Footer Navigation Styles */
-        .footer-nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding-top: 30px;
-            margin-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white line */
-        }
-
-        .footer-nav-col h4 {
-            font-size: 1.2em;
-            margin-top: 0;
-            margin-bottom: 15px;
-            color: var(--accent-green);
-        }
-
-        .footer-nav-col ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-nav-col ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-nav-col ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-
-        .footer-nav-col ul li a:hover {
-            color: var(--accent-green);
-        }
-        
         .footer-text {
-            /* Now only for the logo/copyright */
-            margin-top: 30px;
+            margin-top: 30px;
             font-size: 0.9em;
-            text-align: center;
         }
-
+        
         /* 1. Mobile-Friendly Edit: Responsive adjustments for smaller screens */
         @media (max-width: 768px) {
             
@@ -385,17 +339,6 @@
                 width: 100%;
                 box-sizing: border-box; /* Include padding and border in the element's total width and height */
             }
-
-            /* NEW: Footer Navigation stacking on mobile */
-            .footer-nav-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 30px;
-            }
-
-            .footer-nav-col {
-                text-align: center;
-            }
         }
 
     </style>
@@ -464,66 +407,54 @@
 
     </main>
 
-        <footer id="waitlist">
+    <footer id="waitlist">
         <div class="container">
-            <div class="footer-waitlist">
-                <h2>Be the First to Know</h2>
-                <p>We are making Caily AI available to a small group of seniors and their families in 2025. Sign up to get on the waitlist for our pilot program.</p>
+            <h2>Be the First to Know</h2>
+            <p>We are making Caily AI available to a small group of seniors and their families in 2025. Sign up to get on the waitlist for our pilot program.</p>
 
-                <form id="waitlist-form">
-                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-                    <button type="submit">Join Waitlist</button>
-                </form>
-            </div>
-            
-            <script>
-                const form = document.getElementById('waitlist-form');
-                const appScriptURL = 'https://script.google.com/macros/s/AKfycbzqdLXmATNVp6k29k5jngqMwnBgA_gvJ3l6GOYB7kPMLCii8IzVbK9GLV7OxQPwpK-n/exec'; 
-                const thankYouURL = 'https://www.caily.ai/thank-you.html'; 
+            
+<form id="waitlist-form">
+    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+    <button type="submit">Join Waitlist</button>
+</form>
 
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault(); 
-                    fetch(appScriptURL, {
-                        method: 'POST',
-                        body: new FormData(form)
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            window.location.href = thankYouURL; 
-                        } else {
-                            alert('An error occurred during submission. Please try again.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('A network error occurred.');
-                    });
-                });
-            </script>
+<script>
+    const form = document.getElementById('waitlist-form');
+    // NOTE: This URL must be a live, deployed Google Apps Script Web App URL!
+    const appScriptURL = 'https://script.google.com/macros/s/AKfycbzqdLXmATNVp6k29k5jngqMwnBgA_gvJ3l6GOYB7kPMLCii8IzVbK9GLV7OxQPwpK-n/exec'; 
+    // NOTE: This URL must point to your custom thank you page (e.g., the one created earlier).
+    const thankYouURL = 'https://www.caily.ai/thank-you.html'; 
 
-            <div class="footer-nav-container">
-                <div class="footer-nav-col">
-                    <h4>Caily AI</h4>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="mailto:contact@caily.ai">Contact</a></li>
-                    </ul>
-                </div>
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Stop the default form submission
 
-                <div class="footer-nav-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="/terms.html">Terms of Service</a></li>
-                        <li><a href="/privacy.html">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
+        // Use the Fetch API to send the data silently
+        fetch(appScriptURL, {
+            method: 'POST',
+            body: new FormData(form)
+        })
+        .then(response => {
+            // Check for a successful response (status 200-299)
+            if (response.ok) {
+                // Redirect to your custom thank you page
+                window.location.href = thankYouURL; 
+            } else {
+                alert('An error occurred during submission. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('A network error occurred.');
+        });
+    });
+</script>
 
-                        <div class="footer-text">
+            
+            <div class="footer-text">
                 <p>&copy; 2025 Caily AI. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-    </body>
+
+</body>
 </html>
