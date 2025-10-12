@@ -100,14 +100,14 @@
 
         /* Hero Section */
         .hero {
+            /* Combined background properties for robustness */
             background: url('soundwave.png') no-repeat center center;
-            /* Use 'contain' to ensure the entire image is always visible */
-            background-size: contain; 
-            /* Change background color to match the image's background color (e.g., #e8e8e3)
-               so that any uncovered space doesn't look jarring. */
-            background-color: var(--secondary-color); 
-            padding: 100px 0; 
-            /* ... other styles */
+            background-size: cover; /* This makes it stretch to cover */
+            
+            /* Ensure content is readable and the section has height */
+            padding: 100px 0; /* Provide ample vertical space */
+            text-align: center;
+            color: var(--text-color); /* Ensure default text color for the section is dark grey */
         }
         
         .hero h1 {
@@ -451,7 +451,7 @@
 
             
             <div class="footer-text">
-                <p>&copy; 2025 Caily. All Rights Reserved.</p>
+                <p>&copy; 2025 Caily AI. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
