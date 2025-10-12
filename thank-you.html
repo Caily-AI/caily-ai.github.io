@@ -1,179 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You for Joining!</title>
-    <style>
-        :root {
-            /* Extracted colors from the provided image */
-            --logo-color: #5D89ED;
-            --primary-color: #6a7f74; /* Darker green from sidebar/headers */
-            --secondary-color: #e8e8e3; /* Light beige/off-white background */
-            --text-color: #333333; /* Standard dark text */
-            --light-gray: #d4d4cd; /* Lighter shade for borders/subtleties */
-            --white: #ffffff; /* Pure white for elements */
-            --accent-green: #a7cdb8; /* Light green from the dashboard cards */
-            --accent-orange: #efad78; /* Orange from the dashboard cards */
-            --accent-red: #da7156; /* Reddish-orange from the dashboard cards */
-            --accent-blue: #a3c4db; /* Light blue from the dashboard cards */
-            /* 2) Changed font to Source Sans 3, pulling from the link above */
-            --font-family: 'Source Sans 3', sans-serif;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Joining!</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Extracted colors from the provided image */
+            /* UPDATED: Changed logo color to #5D89ED */
+            --logo-color: #5D89ED; 
+            --primary-color: #6a7f74; /* Darker green from sidebar/headers */
+            --secondary-color: #e8e8e3; /* Light beige/off-white background */
+            --text-color: #333333; /* Standard dark text */
+            --light-gray: #d4d4cd; /* Lighter shade for borders/subtleties */
+            --white: #ffffff; /* Pure white for elements */
+            --accent-green: #a7cdb8; /* Light green from the dashboard cards */
+            --accent-orange: #efad78; /* Orange from the dashboard cards */
+            --accent-red: #da7156; /* Reddish-orange from the dashboard cards */
+            --accent-blue: #a3c4db; /* Light blue from the dashboard cards */
+            /* UPDATED: Changed font to Source Sans 3, pulling from the link above */
+            --font-family: 'Source Sans 3', sans-serif;
+        }
 
-        body {
-            font-family: var(--font-family);
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            background-color: var(--white);
-            line-height: 1.6;
-        }
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-        /* Header */
-        header {
-            background-color: var(--white);
-            padding: 20px 0;
-            border-bottom: 1px solid var(--light-gray);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--light-gray);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        .logo {
-            font-size: 2em;
-            font-weight: bold;
-            color: var(--logo-color);
-        }
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--logo-color);
+        }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
 
-        nav ul li {
-            margin-left: 20px;
-        }
+        nav ul li {
+            margin-left: 20px;
+        }
 
-        nav a {
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-        
-        .cta-button {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block; /* Added for button-like behavior */
-            transition: background-color 0.3s ease;
-        }
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .cta-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block; /* Added for button-like behavior */
+            transition: background-color 0.3s ease;
+        }
 
-        .cta-button:hover {
-            background-color: #5b6f63; /* Slightly darker shade on hover */
-        }
-        
-        /* Thank You Section Styles */
-        .thank-you-section {
-            background-color: var(--secondary-color); /* Light beige background for main content */
-            padding: 80px 0;
-            text-align: center;
-            min-height: 70vh; /* Ensures it fills most of the viewport height */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        
-        .confirmation-box {
-            background-color: var(--white);
-            padding: 40px 60px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-            max-width: 600px;
-            width: 90%;
-            border-top: 5px solid var(--primary-color); /* A nice accent border */
-        }
+        .cta-button:hover {
+            background-color: #5b6f63; /* Slightly darker shade on hover */
+        }
+        
+        /* Thank You Section Styles */
+        .thank-you-section {
+            background-color: var(--secondary-color); /* Light beige background for main content */
+            padding: 80px 0;
+            text-align: center;
+            min-height: 70vh; /* Ensures it fills most of the viewport height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .confirmation-box {
+            background-color: var(--white);
+            padding: 40px 60px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            max-width: 600px;
+            width: 90%;
+            border-top: 5px solid var(--primary-color); /* A nice accent border */
+        }
 
-        .confirmation-box h1 {
-            color: var(--primary-color);
-            font-size: 3em;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
+        .confirmation-box h1 {
+            color: var(--primary-color);
+            font-size: 3em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
 
-        .confirmation-box p {
-            font-size: 1.1em;
-            color: var(--text-color);
-            margin-bottom: 30px;
-        }
+        .confirmation-box p {
+            font-size: 1.1em;
+            color: var(--text-color);
+            margin-bottom: 30px;
+        }
 
-        .icon-check {
-            font-size: 4em;
-            color: var(--accent-green);
-            margin-bottom: 20px;
-            /* Placeholder for an actual checkmark icon, e.g., from Font Awesome or a custom SVG */
-        }
+        .icon-check {
+            font-size: 4em;
+            color: var(--accent-green);
+            margin-bottom: 20px;
+            /* Placeholder for an actual checkmark icon, e.g., from Font Awesome or a custom SVG */
+        }
 
-        /* Footer */
-        footer {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 20px 0;
-            text-align: center;
-            font-size: 0.9em;
-        }
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9em;
+        }
 
-        footer a {
-            color: var(--accent-green);
-            text-decoration: none;
-        }
-    </style>
+        footer a {
+            color: var(--accent-green);
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo"><a href="/index.html">Caily AI</a></div>
-            </nav>
-        </div>
-    </header>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="/index.html">Caily AI</a></div>
+            </nav>
+        </div>
+    </header>
 
-    <div class="thank-you-section">
-        <div class="confirmation-box">
-            <div class="icon-check">✓</div> 
-            
-            <h1>Thank You!</h1>
-            <p>Your email has been successfully added to the waitlist.</p>
-            <p>We'll notify you as soon as Caily AI is ready for early access. Keep an eye on your inbox! 
-                In the meantime, we invite you to join fellow family members of independent elders in the Caily community.</p>
-            <a href="http://www.caily.org" class="cta-button">Learn more at Caily.org</a>
-        </div>
-    </div>
+    <div class="thank-you-section">
+        <div class="confirmation-box">
+            <div class="icon-check">✓</div> 
+            
+            <h1>Thank You!</h1>
+            <p>Your email has been successfully added to the waitlist.</p>
+            <p>We'll notify you as soon as Caily AI is ready for early access. Keep an eye on your inbox! 
+                In the meantime, we invite you to join fellow family members of independent elders in the Caily community.</p>
+            <a href="http://www.caily.org" class="cta-button">Learn more at Caily.org</a>
+        </div>
+    </div>
 
-    <footer>
-        <div class="container">
-            &copy; 2025 Caily AI  |   <i>Got questions? Contact us at info@caily.ai</i>
-        </div>
-    </footer>
+    <footer>
+        <div class="container">
+            &copy; 2025 Caily AI  |   <i>Got questions? Contact us at info@caily.ai</i>
+        </div>
+    </footer>
 
 </body>
 </html>
