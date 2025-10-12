@@ -1,460 +1,529 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caily AI | 24x7 Senior Assistant</title>
-    
-    <meta name="description" content="Caily AI is a 24/7 interactive, warm, and trustworthy voice assistant designed to help seniors with everyday tasks, promoting safety, independence, and connection.">
-    <meta name="keywords" content="AI assistant for seniors, senior care, voice assistant, elderly independence, 24/7 assistant, senior safety, family connection, Caily AI">
-    <meta name="author" content="Caily AI Team">
-    
-    <meta property="og:title" content="Caily AI | 24x7 Senior Assistant">
-    <meta property="og:description" content="Caily AI is a 24/7 interactive, warm, and trustworthy voice assistant designed to help seniors with everyday tasks, promoting safety, independence, and connection.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.caily.ai/"> 
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            /* Extracted colors from the provided image */
-            --logo-color: #5D89ED;
-            --primary-color: #6a7f74; /* Darker green from sidebar/headers */
-            --secondary-color: #e8e8e3; /* Light beige/off-white background */
-            --text-color: #333333; /* Standard dark text */
-            --light-gray: #d4d4cd; /* Lighter shade for borders/subtleties */
-            --white: #ffffff; /* Pure white for elements */
-            --accent-green: #a7cdb8; /* Light green from the dashboard cards */
-            --accent-orange: #efad78; /* Orange from the dashboard cards */
-            --accent-red: #da7156; /* Reddish-orange from the dashboard cards */
-            --accent-blue: #a3c4db; /* Light blue from the dashboard cards */
-            /* 2) Changed font to Source Sans 3, pulling from the link above */
-            --font-family: 'Source Sans 3', sans-serif;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caily AI | 24x7 Senior Assistant</title>
+    
+    <meta name="description" content="Caily AI is a 24/7 interactive, warm, and trustworthy voice assistant designed to help seniors with everyday tasks, promoting safety, independence, and connection.">
+    <meta name="keywords" content="AI assistant for seniors, senior care, voice assistant, elderly independence, 24/7 assistant, senior safety, family connection, Caily AI">
+    <meta name="author" content="Caily AI Team">
+    
+    <meta property="og:title" content="Caily AI | 24x7 Senior Assistant">
+    <meta property="og:description" content="Caily AI is a 24/7 interactive, warm, and trustworthy voice assistant designed to help seniors with everyday tasks, promoting safety, independence, and connection.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.caily.ai/"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Extracted colors from the provided image */
+            --logo-color: #5D89ED;
+            --primary-color: #6a7f74; /* Darker green from sidebar/headers */
+            --secondary-color: #e8e8e3; /* Light beige/off-white background */
+            --text-color: #333333; /* Standard dark text */
+            --light-gray: #d4d4cd; /* Lighter shade for borders/subtleties */
+            --white: #ffffff; /* Pure white for elements */
+            --accent-green: #a7cdb8; /* Light green from the dashboard cards */
+            --accent-orange: #efad78; /* Orange from the dashboard cards */
+            --accent-red: #da7156; /* Reddish-orange from the dashboard cards */
+            --accent-blue: #a3c4db; /* Light blue from the dashboard cards */
+            /* 2) Changed font to Source Sans 3, pulling from the link above */
+            --font-family: 'Source Sans 3', sans-serif;
+        }
 
-        body {
-            /* 2) Using the new font family */
-            font-family: var(--font-family);
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            background-color: var(--white);
-            line-height: 1.6;
-        }
+        body {
+            /* 2) Using the new font family */
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-        /* Header */
-        header {
-            background-color: var(--white);
-            padding: 20px 0;
-            border-bottom: 1px solid var(--light-gray);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--light-gray);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-        nav {
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--logo-color);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .cta-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            /* Combined background properties for robustness */
+            background: url('soundwave.png') no-repeat center center;
+            background-size: cover; /* This makes it stretch to cover */
+            
+            /* Ensure content is readable and the section has height */
+            padding: 100px 0; /* Provide ample vertical space */
+            text-align: center;
+            color: var(--text-color); /* Ensure default text color for the section is dark grey */
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: var(--primary-color); /* Explicitly set heading color to dark green */
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+        
+        .hero .cta-button {
+            background-color: var(--primary-color); /* Example: use an accent color that stands out */
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero .cta-button:hover {
+            background-color: #8ac09d; /* Slightly darker accent green on hover */
+        }
+
+
+        /* Problem/Stats Section */
+        .problem-section {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--white); /* Ensure contrast with hero */
+        }
+
+        .problem-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            /* 1. Mobile-Friendly Edit: Allow items to wrap on smaller screens */
+            flex-wrap: wrap; 
+        }
+
+        .stat-item {
+            /* 1. Mobile-Friendly Edit: Changed from absolute 30% to a more flexible calculation for smaller gaps on mobile */
+            flex-basis: 30%; 
+            min-width: 250px; /* Ensures minimum size for readability, will stack on smaller screens */
+            margin-bottom: 20px;
+            background-color: var(--secondary-color); /* Use secondary for card-like background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin: 10px; /* Added margins for spacing when wrapping */
+        }
+
+        .stat-item .number {
+            font-size: 3em;
+            font-weight: bold;
+            color: var(--accent-orange); /* Used one of the dashboard card colors */
+        }
+
+        .stat-item .description {
+            font-size: 1.1em;
+            color: var(--text-color);
+            margin-top: 10px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+            background-color: var(--secondary-color);
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        .feature-grid {
+            display: grid;
+            /* 1. Mobile-Friendly Edit: Ensures the grid adapts. Items will be full width until 300px is possible for at least two columns. */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        /* Community Section */
+        .community-section {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--white);
+        }
+        
+        .community-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .community-section p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Footer / Waitlist */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 60px 0;
+            /* Changed to remove text-align: center; for wider footer content */
+        }
+        
+        /* NEW: Footer Top Section - For Waitlist Content */
+        .footer-waitlist {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        footer h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        #waitlist-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        #waitlist-form input[type="email"] {
+            flex-grow: 1;
+            padding: 15px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+            background-color: var(--secondary-color); 
+            color: var(--text-color);
+        }
+        
+        #waitlist-form button {
+            padding: 15px 25px;
+            border-radius: 5px;
+            border: none;
+            background-color: var(--secondary-color); 
+            color: var(--primary-color);
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #waitlist-form button:hover {
+            background-color: var(--accent-green);
+            color: var(--white);
+        }
+        
+        /* NEW: Footer Navigation Styles */
+        .footer-nav-container {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 2em;
-            font-weight: bold;
-            color: var(--logo-color);
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        nav ul li {
-            margin-left: 20px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-        
-        .cta-button {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* Hero Section */
-        .hero {
-            /* Combined background properties for robustness */
-            background: url('soundwave.png') no-repeat center center;
-            background-size: cover; /* This makes it stretch to cover */
-            
-            /* Ensure content is readable and the section has height */
-            padding: 100px 0; /* Provide ample vertical space */
-            text-align: center;
-            color: var(--text-color); /* Ensure default text color for the section is dark grey */
-        }
-        
-        .hero h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: var(--primary-color); /* Explicitly set heading color to dark green */
-        }
-
-        .hero p {
-            font-size: 1.2em;
-            max-width: 600px;
-            margin: 0 auto 30px auto;
-        }
-        
-        .hero .cta-button {
-            background-color: var(--primary-color); /* Example: use an accent color that stands out */
-            color: var(--white);
-            padding: 12px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-        }
-
-        .hero .cta-button:hover {
-            background-color: #8ac09d; /* Slightly darker accent green on hover */
-        }
-
-
-        /* Problem/Stats Section */
-        .problem-section {
-            padding: 60px 0;
-            text-align: center;
-            background-color: var(--white); /* Ensure contrast with hero */
-        }
-
-        .problem-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            color: var(--primary-color);
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: space-around;
-            /* 1. Mobile-Friendly Edit: Allow items to wrap on smaller screens */
-            flex-wrap: wrap; 
-        }
-
-        .stat-item {
-            /* 1. Mobile-Friendly Edit: Changed from absolute 30% to a more flexible calculation for smaller gaps on mobile */
-            flex-basis: 30%; 
-            min-width: 250px; /* Ensures minimum size for readability, will stack on smaller screens */
-            margin-bottom: 20px;
-            background-color: var(--secondary-color); /* Use secondary for card-like background */
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            margin: 10px; /* Added margins for spacing when wrapping */
-        }
-
-        .stat-item .number {
-            font-size: 3em;
-            font-weight: bold;
-            color: var(--accent-orange); /* Used one of the dashboard card colors */
-        }
-
-        .stat-item .description {
-            font-size: 1.1em;
-            color: var(--text-color);
-            margin-top: 10px;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 60px 0;
-            background-color: var(--secondary-color);
-        }
-        
-        .features h2 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            color: var(--primary-color);
-        }
-
-        .feature-grid {
-            display: grid;
-            /* 1. Mobile-Friendly Edit: Ensures the grid adapts. Items will be full width until 300px is possible for at least two columns. */
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .feature-card h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-        }
-
-        /* Community Section */
-        .community-section {
-            padding: 60px 0;
-            text-align: center;
-            background-color: var(--white);
-        }
-        
-        .community-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-
-        .community-section p {
-            font-size: 1.2em;
-            max-width: 700px;
-            margin: 0 auto 30px auto;
-        }
-
-        /* Footer / Waitlist */
-        footer {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 60px 0;
-            text-align: center;
-        }
-        
-        footer h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        #waitlist-form {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            gap: 10px;
-        }
-
-        #waitlist-form input[type="email"] {
-            flex-grow: 1;
-            padding: 15px;
-            border-radius: 5px;
-            border: none;
-            font-size: 1em;
-            background-color: var(--secondary-color); 
-            color: var(--text-color);
-        }
-        
-        #waitlist-form button {
-            padding: 15px 25px;
-            border-radius: 5px;
-            border: none;
-            background-color: var(--secondary-color); 
-            color: var(--primary-color);
-            font-size: 1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #waitlist-form button:hover {
-            background-color: var(--accent-green);
-            color: var(--white);
-        }
-        
-        .footer-text {
+            align-items: flex-start;
+            padding-top: 30px;
             margin-top: 30px;
-            font-size: 0.9em;
+            border-top: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white line */
+        }
+
+        .footer-nav-col h4 {
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--accent-green);
+        }
+
+        .footer-nav-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-nav-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-nav-col ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav-col ul li a:hover {
+            color: var(--accent-green);
         }
         
-        /* 1. Mobile-Friendly Edit: Responsive adjustments for smaller screens */
-        @media (max-width: 768px) {
-            
-            .container {
-                padding: 0 15px; /* Slightly less padding on very small screens */
-            }
+        .footer-text {
+            /* Now only for the logo/copyright */
+            margin-top: 30px;
+            font-size: 0.9em;
+            text-align: center;
+        }
 
-            nav {
-                flex-direction: column; /* Stack logo and nav links */
-            }
+        /* 1. Mobile-Friendly Edit: Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            
+            .container {
+                padding: 0 15px; /* Slightly less padding on very small screens */
+            }
 
-            nav ul {
-                margin-top: 15px;
-            }
+            nav {
+                flex-direction: column; /* Stack logo and nav links */
+            }
 
-            nav ul li {
-                margin-left: 10px;
-                margin-right: 10px;
-            }
+            nav ul {
+                margin-top: 15px;
+            }
 
-            .hero {
-                padding: 60px 0; /* Reduce vertical padding on mobile */
-            }
-            
-            .hero h1 {
-                font-size: 2.2em; /* Smaller font for main heading */
-            }
+            nav ul li {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
 
-            .problem-section h2, .features h2, .community-section h2 {
-                font-size: 2em; /* Smaller headings */
-            }
+            .hero {
+                padding: 60px 0; /* Reduce vertical padding on mobile */
+            }
+            
+            .hero h1 {
+                font-size: 2.2em; /* Smaller font for main heading */
+            }
 
-            .stats-container {
+            .problem-section h2, .features h2, .community-section h2 {
+                font-size: 2em; /* Smaller headings */
+            }
+
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-item {
+                flex-basis: 90%; /* Take up most of the width */
+                min-width: auto; /* Remove minimum width constraint */
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
+            #waitlist-form {
+                flex-direction: column; /* Stack input and button */
+                gap: 15px;
+                padding: 0 20px;
+            }
+            
+            #waitlist-form input[type="email"], #waitlist-form button {
+                width: 100%;
+                box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            }
+
+            /* NEW: Footer Navigation stacking on mobile */
+            .footer-nav-container {
                 flex-direction: column;
                 align-items: center;
+                gap: 30px;
             }
-            
-            .stat-item {
-                flex-basis: 90%; /* Take up most of the width */
-                min-width: auto; /* Remove minimum width constraint */
-                margin-left: 0;
-                margin-right: 0;
-            }
-            
-            #waitlist-form {
-                flex-direction: column; /* Stack input and button */
-                gap: 15px;
-                padding: 0 20px;
-            }
-            
-            #waitlist-form input[type="email"], #waitlist-form button {
-                width: 100%;
-                box-sizing: border-box; /* Include padding and border in the element's total width and height */
-            }
-        }
 
-    </style>
+            .footer-nav-col {
+                text-align: center;
+            }
+        }
+
+    </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Caily AI</div>
-                <ul>
-                    <li><a href="#waitlist" class="cta-button">Join Waitlist</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Caily AI</div>
+                <ul>
+                    <li><a href="#waitlist" class="cta-button">Join Waitlist</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>24x7 Senior Assistant</h1>
-                <p>Caily AI is an interactive, warm, and trustworthy voice assistant designed to help seniors with everyday tasks, keeping them safe, independent, and connected to you.</p>
-                <a href="#waitlist" class="cta-button">Join Waitlist</a>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>24x7 Senior Assistant</h1>
+                <p>Caily AI is an interactive, warm, and trustworthy voice assistant designed to help seniors with everyday tasks, keeping them safe, independent, and connected to you.</p>
+                <a href="#waitlist" class="cta-button">Join Waitlist</a>
+            </div>
+        </section>
+
+        <section class="problem-section">
+            <div class="container">
+                <h2>Easy Start for You & Your Seniors</h2>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="number">Step 1</div>
+                        <div class="description">Create your Caily AI account and add your seniors' names and phone numbers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">Step 2</div>
+                        <div class="description">Add Caily AI to your seniors' contact list on their phones, and make a first call with them</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">Step 3</div>
+                        <div class="description">Your seniors call Caily AI anytime 24x7, and we keep you in the loop</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Immediate Assistance & Transparency</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>Independence</h3>
+                        <p>Caily AI keeps track of seniors' everyday needs and keeps you in the loop so that you can help them live independently.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Accessibility</h3>
+                        <p>With 24/7 availability by phone, seniors can access assistance anytime, day or night. Caily AI always picks up on the first ring and is supremely patient.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Safety & Connection</h3>
+                        <p>Caily AI keeps you in the loop about your seniors' needs, ensuring that you know how to support your loved ones.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+        <footer id="waitlist">
+        <div class="container">
+            <div class="footer-waitlist">
+                <h2>Be the First to Know</h2>
+                <p>We are making Caily AI available to a small group of seniors and their families in 2025. Sign up to get on the waitlist for our pilot program.</p>
+
+                <form id="waitlist-form">
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    <button type="submit">Join Waitlist</button>
+                </form>
             </div>
-        </section>
+            
+            <script>
+                const form = document.getElementById('waitlist-form');
+                const appScriptURL = 'https://script.google.com/macros/s/AKfycbzqdLXmATNVp6k29k5jngqMwnBgA_gvJ3l6GOYB7kPMLCii8IzVbK9GLV7OxQPwpK-n/exec'; 
+                const thankYouURL = 'https://www.caily.ai/thank-you.html'; 
 
-        <section class="problem-section">
-            <div class="container">
-                <h2>Easy Start for You & Your Seniors</h2>
-                <div class="stats-container">
-                    <div class="stat-item">
-                        <div class="number">Step 1</div>
-                        <div class="description">Create your Caily AI account and add your seniors' names and phone numbers</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="number">Step 2</div>
-                        <div class="description">Add Caily AI to your seniors' contact list on their phones, and make a first call with them</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="number">Step 3</div>
-                        <div class="description">Your seniors call Caily AI anytime 24x7, and we keep you in the loop</div>
-                    </div>
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault(); 
+                    fetch(appScriptURL, {
+                        method: 'POST',
+                        body: new FormData(form)
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            window.location.href = thankYouURL; 
+                        } else {
+                            alert('An error occurred during submission. Please try again.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('A network error occurred.');
+                    });
+                });
+            </script>
+
+            <div class="footer-nav-container">
+                <div class="footer-nav-col">
+                    <h4>Caily AI</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="mailto:contact@caily.ai">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                    </ul>
                 </div>
             </div>
-        </section>
 
-        <section id="features" class="features">
-            <div class="container">
-                <h2>Immediate Assistance & Transparency</h2>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h3>Independence</h3>
-                        <p>Caily AI keeps track of seniors' everyday needs and keeps you in the loop so that you can help them live independently.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Accessibility</h3>
-                        <p>With 24/7 availability by phone, seniors can access assistance anytime, day or night. Caily AI always picks up on the first ring and is supremely patient.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Safety & Connection</h3>
-                        <p>Caily AI keeps you in the loop about your seniors' needs, ensuring that you know how to support your loved ones.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer id="waitlist">
-        <div class="container">
-            <h2>Be the First to Know</h2>
-            <p>We are making Caily AI available to a small group of seniors and their families in 2025. Sign up to get on the waitlist for our pilot program.</p>
-
-            
-<form id="waitlist-form">
-    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-    <button type="submit">Join Waitlist</button>
-</form>
-
-<script>
-    const form = document.getElementById('waitlist-form');
-    // NOTE: This URL must be a live, deployed Google Apps Script Web App URL!
-    const appScriptURL = 'https://script.google.com/macros/s/AKfycbzqdLXmATNVp6k29k5jngqMwnBgA_gvJ3l6GOYB7kPMLCii8IzVbK9GLV7OxQPwpK-n/exec'; 
-    // NOTE: This URL must point to your custom thank you page (e.g., the one created earlier).
-    const thankYouURL = 'https://www.caily.ai/thank-you.html'; 
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault(); // Stop the default form submission
-
-        // Use the Fetch API to send the data silently
-        fetch(appScriptURL, {
-            method: 'POST',
-            body: new FormData(form)
-        })
-        .then(response => {
-            // Check for a successful response (status 200-299)
-            if (response.ok) {
-                // Redirect to your custom thank you page
-                window.location.href = thankYouURL; 
-            } else {
-                alert('An error occurred during submission. Please try again.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('A network error occurred.');
-        });
-    });
-</script>
-
-            
-            <div class="footer-text">
-                <p>&copy; 2025 Caily AI. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-</body>
+                        <div class="footer-text">
+                <p>&copy; 2025 Caily AI. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    </body>
 </html>
