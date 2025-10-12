@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caily AI | Your 24x7 Senior Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <style>
         :root {
             /* Extracted colors from the provided image */
-            --logo-color: #5D89ED
+            --logo-color: #5D89ED;
             --primary-color: #6a7f74; /* Darker green from sidebar/headers */
             --secondary-color: #e8e8e3; /* Light beige/off-white background */
             --text-color: #333333; /* Standard dark text */
@@ -17,10 +20,12 @@
             --accent-orange: #efad78; /* Orange from the dashboard cards */
             --accent-red: #da7156; /* Reddish-orange from the dashboard cards */
             --accent-blue: #a3c4db; /* Light blue from the dashboard cards */
-            --font-family: 'Source Sans 3'; /* Kept font for readability */
+            /* 2) Changed font to Source Sans 3, pulling from the link above */
+            --font-family: 'Source Sans 3', sans-serif;
         }
 
         body {
+            /* 2) Using the new font family */
             font-family: var(--font-family);
             margin: 0;
             padding: 0;
@@ -218,7 +223,8 @@
             border-radius: 5px;
             border: none;
             font-size: 1em;
-            background-color: var(--light-gray); /* Input field background */
+            /* 1) Swapped color: input background is now secondary color */
+            background-color: var(--secondary-color); 
             color: var(--text-color);
         }
         
@@ -226,7 +232,9 @@
             padding: 15px 25px;
             border-radius: 5px;
             border: none;
-            background-color: var(--white); /* Button background */
+            /* 1) Swapped color: button background is now secondary color */
+            background-color: var(--secondary-color); 
+            /* 1) Swapped color: button text is now primary color for contrast */
             color: var(--primary-color);
             font-size: 1em;
             font-weight: bold;
@@ -235,6 +243,7 @@
         }
 
         #waitlist-form button:hover {
+            /* Hover effect updated for visibility on dark footer */
             background-color: var(--accent-green);
             color: var(--white);
         }
