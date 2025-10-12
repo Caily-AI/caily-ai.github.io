@@ -100,65 +100,16 @@
         }
 
         /* Hero Section */
-        /*.hero {
+        .hero {
             /* Combined background properties for robustness */
-            /*background: url('soundwaveheader.png') no-repeat center center;
+            background: url('soundwaveheader.png') no-repeat center center;
             background-size: center;
             
             /* Ensure content is readable and the section has height */
-            /*padding: 100px 0; /* Provide ample vertical space */
-            /*text-align: center;
+            padding: 100px 0; /* Provide ample vertical space */
+            text-align: center;
             color: var(--text-color); /* Ensure default text color for the section is dark grey */
-        
         }
-
-        /* Hero Section */
-.hero {
-    /* REMOVED: background: url('soundwaveheader.png') no-repeat center center; */
-    background: none; /* 1. Ensure no other background property interferes */
-    position: relative; /* 2. ESSENTIAL: This contains the absolute-positioned video */
-    overflow: hidden; 
-    
-    /* Ensure content is readable and the section has height */
-    padding: 100px 0; /* Provide ample vertical space */
-    text-align: center;
-    color: var(--text-color); 
-}
-
-/* New styles for the background video */
-#hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1; /* 3. ESSENTIAL: Place the video behind the content */
-    transform: translate(-50%, -50%);
-    background-size: cover;
-}
-
-/* Optional: Add an overlay for better text readability on top of the video */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    /* Adjusted opacity for a brighter/whiter overlay, which suits the image preview */
-    background: rgba(255, 255, 255, 0.8); /* Changed opacity from 0.7 to 0.8 */
-    z-index: 0; /* Place the overlay between the video and the content */
-}
-
-.hero .container {
-    position: relative; /* 4. ESSENTIAL: Establish a new stacking context */
-    z-index: 1; /* 5. ESSENTIAL: Ensure text content is on top of the video and overlay */
-}
-
-/* Existing .hero h1 and .hero p styles are correct for text color */
-/* ... */
         
         .hero h1 {
             font-size: 3em;
@@ -388,16 +339,13 @@
     </header>
 
     <main>
-
         <section class="hero">
-    <video autoplay loop muted playsinline id="hero-video">
-        <source src="soundwave.MP4" type="video/mp4">
-        <img src="soundwaveheader.png" alt="Caily AI Soundwave Background">
-    </video>
-
-    <div class="container">
-        </div>
-</section>
+            <div class="container">
+                <h1>24x7 Senior Assistant</h1>
+                <p>Caily AI is an interactive, warm, and trustworthy voice assistant designed to help seniors with everyday tasks, keeping them safe, independent, and connected to you.</p>
+                <a href="#waitlist" class="cta-button">Join Waitlist</a>
+            </div>
+        </section>
 
         
         <section class="problem-section">
